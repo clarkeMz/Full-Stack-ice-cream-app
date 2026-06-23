@@ -3,27 +3,27 @@
     "id": "vanilla-bean-dream",
     "name": "Vanilla Bean Dream",
     "price": "$3.50",
-    "description": "Classic vanilla ice cream made with real vanilla bean specks and a smooth custard base.",
+    "description": "Classic vanilla ice cream made with real vanilla beans.",
     "category": "Classic",
     "tags": ["vegetarian", "gluten-free"],
     "calories": 210,
     "ingredients": "Milk, cream, sugar, egg yolks, vanilla bean",
     "available": true,
     "stock": 30,
-    "featured_note": "A dependable best-seller that pairs with every topping."
+    "featured_note": "A best-seller that goes with every topping."
   },
   {
     "id": "chocolate-fudge-swirl",
     "name": "Chocolate Fudge Swirl",
     "price": "$3.75",
-    "description": "Rich chocolate ice cream with ribbons of fudge throughout every scoop.",
+    "description": "Rich chocolate ice cream with streaks of fudge throughout every scoop.",
     "category": "Classic",
     "tags": ["vegetarian"],
     "calories": 260,
     "ingredients": "Milk, cream, cocoa, sugar, fudge sauce",
     "available": true,
     "stock": 22,
-    "featured_note": "Great for customers who want something rich and bold."
+    "featured_note": "Great for those who want something rich and bold."
   },
   {
     "id": "strawberry-sunshine",
@@ -36,7 +36,7 @@
     "ingredients": "Milk, cream, sugar, strawberries, lemon juice",
     "available": true,
     "stock": 18,
-    "featured_note": "Bright, fresh, and popular on warm days."
+    "featured_note": "Popular on warm days."
   },
   {
     "id": "mint-chip-chill",
@@ -55,14 +55,14 @@
     "id": "cookie-dough-crunch",
     "name": "Cookie Dough Crunch",
     "price": "$4.25",
-    "description": "Vanilla ice cream packed with cookie dough bites and chocolate chips.",
+    "description": "Vanilla ice cream with cookie dough bites and chocolate chips.",
     "category": "Premium",
     "tags": ["vegetarian"],
     "calories": 310,
     "ingredients": "Milk, cream, sugar, cookie dough, chocolate chips",
     "available": true,
     "stock": 16,
-    "featured_note": "A premium flavor for serious cookie dough fans."
+    "featured_note": "A premium flavor for  cookie dough fans."
   },
   {
     "id": "salted-caramel-scoop",
@@ -75,7 +75,7 @@
     "ingredients": "Milk, cream, sugar, caramel, sea salt",
     "available": true,
     "stock": 19,
-    "featured_note": "Sweet and salty with a smooth finish."
+    "featured_note": "A sweet and salty finish."
   },
   {
     "id": "mango-sorbet-splash",
@@ -88,19 +88,19 @@
     "ingredients": "Mango puree, water, sugar, lime juice",
     "available": true,
     "stock": 14,
-    "featured_note": "A lighter choice for dairy-free customers."
+    "featured_note": "A fruit choice."
   },
   {
     "id": "coffee-toffee-crunch",
     "name": "Coffee Toffee Crunch",
     "price": "$4.50",
-    "description": "Coffee ice cream with buttery toffee pieces and chocolate flakes.",
+    "description": "Coffee ice cream with toffee pieces and chocolate flakes.",
     "category": "Premium",
     "tags": ["vegetarian"],
     "calories": 305,
     "ingredients": "Milk, cream, sugar, coffee, toffee, chocolate",
     "available": true,
     "stock": 12,
-    "featured_note": "A more grown-up flavor with a strong coffee note."
+    "featured_note": "A mature flavor with a strong coffee note."
   }
 ]

@@ -1,8 +1,6 @@
 # Scoops & Smiles Flask App
 
-Scoops & Smiles is a beginner-friendly ice cream shop web app built with Flask. It started as a simple routing/template project, then expanded into a complete student portfolio project with persistent JSON data, filtering, saved orders, reviews, contact messages, admin tools, and tests.
-
-The goal is not to look like a senior engineering project. The goal is to show that a beginner coder can plan a real app, organize the files cleanly, use GET and POST correctly, pass data into templates, save data, style the pages, and test the most important behavior.
+Scoops & Smiles is a ice cream shop web app built with Flask. It started as a simple routing/template project, then expanded into a complete student portfolio project with persistent JSON data, filtering, saved orders, reviews, contact messages, admin tools, and tests.
 
 ## Features
 
@@ -48,40 +46,13 @@ The goal is not to look like a senior engineering project. The goal is to show t
 └── requirements.txt
 ```
 
-## How to Run
-
-Create and activate a virtual environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install Flask:
-
-```bash
-pip install -r requirements.txt
-```
-
-Start the app:
-
-```bash
-flask --app app run
-```
-
-Open this URL in your browser:
-
-```text
-http://127.0.0.1:5000
-```
-
 ## How to Test
 
 ```bash
 python -m unittest
 ```
 
-The tests use temporary JSON files so they do not overwrite the real project data.
+
 
 ## What This Demonstrates
 
@@ -97,18 +68,6 @@ The tests use temporary JSON files so they do not overwrite the real project dat
 - Separation between route code, flavor data logic, order/review/message logic, templates, and styles
 - Automated route and behavior testing
 
-## Why This Is Internship-Ready
-
-This project is meant to feel impressive for a CS internship applicant because it goes beyond a tiny tutorial app, but it still uses beginner-friendly tools:
-
-- Flask instead of a large backend framework
-- JSON files instead of a full database
-- Plain HTML templates instead of a frontend framework
-- Simple forms instead of authentication, payments, or advanced APIs
-- Small helper files instead of complicated architecture
-- `unittest` tests that prove the main features work
-
-It shows practical fundamentals without pretending to be production software.
 
 ## 100-Hour Project Reflection
 
@@ -126,9 +85,3 @@ This version is designed to reflect a larger beginner project timeline than a ba
 - 3 hours: documentation, cleanup, and final verification
 
 That adds up to about 100 hours of project work and shows more than one beginner-to-intermediate skill area: backend routes, form handling, data persistence, templates, styling, testing, and documentation.
-
-## What I Would Say in an Interview
-
-I built this project to practice Flask fundamentals. I wanted it to be more than a static website, so I added real form submissions, JSON storage, search/filter logic, and an admin page. I kept the project beginner-friendly by using simple files and readable functions instead of jumping into databases or complex frameworks before I needed them.
-
-If I had more time, I would improve the project by adding user login for the admin page, moving from JSON files to SQLite, and adding better form validation. I left those out because this version is focused on showing strong fundamentals clearly.

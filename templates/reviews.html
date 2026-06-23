@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Reviews | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="section-heading">
+    <p class="eyebrow">Reviews</p>
+    <h1>Customer Reviews</h1>
+    <p>Reviews are submitted with POST and stored in a JSON file.</p>
+</section>
+
+{% if error %}
+    <p class="error-message">{{ error }}</p>
+{% endif %}
+
+<form class="card-form" action="{{ url_for('reviews') }}" method="post">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required>
+
+    <label for="rating">Rating</label>
+    <select id="rating" name="rating">
+        <option value="5">5 stars</option>
+        <option value="4">4 stars</option>
+        <option value="3">3 stars</option>
+        <option value="2">2 stars</option>
+        <option value="1">1 star</option>
+    </select>
+
+    <label for="favorite_flavor">Favorite flavor</label>
+    <select id="favorite_flavor" name="favorite_flavor">
+        {% for flavor in flavors %}
+            <option value="{{ flavor.name }}">{{ flavor.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="comment">Comment</label>
+    <textarea id="comment" name="comment" rows="4" required></textarea>
+
+    <button type="submit">Add Review</button>
+</form>
+
+<section class="review-grid">
+    {% for review in reviews %}
+        <article class="review-card">
+            <div class="stars">{{ "★" * review.rating }}</div>
+            <p>{{ review.comment }}</p>
+            <strong>{{ review.name }}</strong>
+            <span>{{ review.favorite_flavor }} / {{ review.created_at }}</span>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}

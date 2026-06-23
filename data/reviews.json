@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sample01",
+    "created_at": "2026-04-01",
+    "name": "Avery",
+    "rating": 5,
+    "favorite_flavor": "Salted Caramel Scoop",
+    "comment": "The caramel flavor tastes homemade and the online menu made ordering simple."
+  },
+  {
+    "id": "sample02",
+    "created_at": "2026-04-12",
+    "name": "Jordan",
+    "rating": 4,
+    "favorite_flavor": "Mango Sorbet Splash",
+    "comment": "I liked that the dairy-free option was easy to find."
+  }
+]

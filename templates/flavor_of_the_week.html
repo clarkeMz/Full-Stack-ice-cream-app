@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Flavor of the Week | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="spotlight">
+    <p class="eyebrow">Flavor of the Week</p>
+    <h1>{{ flavor.name }}</h1>
+    <p>{{ flavor.description }}</p>
+    <p>{{ flavor.featured_note }}</p>
+    <div class="tag-row centered">
+        {% for tag in flavor.tags %}
+            <span>{{ tag }}</span>
+        {% endfor %}
+    </div>
+    <strong>{{ flavor.price }}</strong>
+    <a class="button" href="{{ url_for('order') }}">Order This Flavor</a>
+</section>
+{% endblock %}

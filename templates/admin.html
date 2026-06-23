@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Admin | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="section-heading">
+    <p class="eyebrow">Admin</p>
+    <h1>Shop Dashboard</h1>
+    <p>Manage flavors, review orders, and read saved contact messages.</p>
+</section>
+
+<section class="stats-band">
+    <article>
+        <strong>{{ menu_stats.total_flavors }}</strong>
+        <span>flavors</span>
+    </article>
+    <article>
+        <strong>{{ order_stats.total_orders }}</strong>
+        <span>orders</span>
+    </article>
+    <article>
+        <strong>{{ order_stats.estimated_revenue }}</strong>
+        <span>estimated revenue</span>
+    </article>
+</section>
+
+{% if added %}
+    <p class="success-message">{{ added }} was added to the menu.</p>
+{% endif %}
+
+{% if message %}
+    <p class="error-message">{{ message }}</p>
+{% endif %}
+
+<form class="card-form" action="{{ url_for('admin') }}" method="post">
+    <label for="name">Flavor name</label>
+    <input id="name" name="name" type="text" required>
+
+    <label for="price">Price</label>
+    <input id="price" name="price" type="text" placeholder="$4.50" required>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="category">Category</label>
+    <input id="category" name="category" type="text" placeholder="Classic, Premium, Sorbet" required>
+
+    <label for="tags">Tags</label>
+    <input id="tags" name="tags" type="text" placeholder="vegetarian, gluten-free">
+
+    <label for="calories">Calories</label>
+    <input id="calories" name="calories" type="number" min="0" required>
+
+    <label for="ingredients">Ingredients</label>
+    <textarea id="ingredients" name="ingredients" rows="3" required></textarea>
+
+    <button type="submit">Add Flavor</button>
+</form>
+
+<section class="admin-list wide-list">
+    <h2>Current Flavors</h2>
+    <div class="table-like">
+        {% for flavor in flavors %}
+            <article>
+                <div>
+                    <strong>{{ flavor.name }}</strong>
+                    <span>{{ flavor.category }} / {{ flavor.price }} / Stock: {{ flavor.stock }}</span>
+                </div>
+                <form action="{{ url_for('admin_toggle_flavor', flavor_id=flavor.id) }}" method="post">
+                    <button type="submit">{{ "Hide" if flavor.available else "Show" }}</button>
+                </form>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="admin-list wide-list">
+    <h2>Recent Orders</h2>
+    <div class="table-like">
+        {% for order in orders %}
+            <article>
+                <div>
+                    <strong>#{{ order.id }} - {{ order.customer_name }}</strong>
+                    <span>{{ order.flavor_name }}, {{ order.scoops }} scoop(s), {{ order.total }}</span>
+                </div>
+                <span>{{ order.status }}</span>
+            </article>
+        {% else %}
+            <p>No orders yet.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="admin-list wide-list">
+    <h2>Messages</h2>
+    <div class="table-like">
+        {% for item in messages %}
+            <article>
+                <div>
+                    <strong>{{ item.subject }}</strong>
+                    <span>{{ item.name }} / {{ item.email }}</span>
+                    <p>{{ item.message }}</p>
+                </div>
+            </article>
+        {% else %}
+            <p>No messages yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}About | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="section-heading">
+    <p class="eyebrow">About</p>
+    <h1>Small Shop, Big Scoops</h1>
+    <p>
+        Scoops & Smiles is a fuller Flask project built to show routing,
+        templates, forms, data files, filtering, order handling, reviews,
+        admin reporting, and basic backend organization.
+    </p>
+</section>
+
+<section class="info-list">
+    <article>
+        <h2>Location</h2>
+        <p>123 Sprinkle Street, Sweet City</p>
+    </article>
+    <article>
+        <h2>Hours</h2>
+        <p>Monday-Friday, 12 PM-8 PM</p>
+    </article>
+    <article>
+        <h2>Contact</h2>
+        <p><a href="{{ url_for('contact') }}">Send a message online</a></p>
+    </article>
+</section>
+
+<section class="faq-list">
+    <h2>FAQ</h2>
+    {% for faq in faqs %}
+        <details>
+            <summary>{{ faq.question }}</summary>
+            <p>{{ faq.answer }}</p>
+        </details>
+    {% endfor %}
+</section>
+{% endblock %}

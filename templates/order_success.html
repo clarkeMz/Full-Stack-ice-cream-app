@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Order Confirmed | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="spotlight">
+    <p class="eyebrow">Order Received</p>
+    <h1>Thanks, {{ order.customer_name }}!</h1>
+    <p>Order #{{ order.id }} for {{ order.scoops }} scoop(s) of {{ order.flavor_name }} has been received.</p>
+    <p>Pickup time: {{ order.pickup_time }}</p>
+    {% if order.toppings %}
+        <p>Toppings: {{ order.toppings|join(", ") }}</p>
+    {% endif %}
+    <p>Total: <strong>{{ order.total }}</strong></p>
+    <a class="button" href="{{ url_for('flavors') }}">Back to Flavors</a>
+</section>
+{% endblock %}

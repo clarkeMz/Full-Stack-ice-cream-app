@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="section-heading">
+    <p class="eyebrow">Contact</p>
+    <h1>Send Us a Message</h1>
+    <p>This page stores form submissions in a JSON file for the admin dashboard.</p>
+</section>
+
+{% if success %}
+    <p class="success-message">Thanks. Your message was saved.</p>
+{% endif %}
+
+{% if error %}
+    <p class="error-message">{{ error }}</p>
+{% endif %}
+
+<form class="card-form" action="{{ url_for('contact') }}" method="post">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+
+    <label for="subject">Subject</label>
+    <input id="subject" name="subject" type="text" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+{% endblock %}

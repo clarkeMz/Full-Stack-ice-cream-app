@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flavor.name }} | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="detail-layout">
+    <div>
+        <p class="eyebrow">{{ flavor.category }}</p>
+        <h1>{{ flavor.name }}</h1>
+        <p>{{ flavor.description }}</p>
+        <div class="tag-row">
+            {% for tag in flavor.tags %}
+                <span>{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <a class="button" href="{{ url_for('order') }}">Order This Flavor</a>
+    </div>
+    <aside class="feature-panel">
+        <span>Flavor Details</span>
+        <h2>{{ flavor.price }}</h2>
+        <p>{{ flavor.calories }} calories per scoop</p>
+        <p><strong>Ingredients:</strong> {{ flavor.ingredients }}</p>
+        <p><strong>Stock:</strong> {{ flavor.stock }} servings</p>
+    </aside>
+</section>
+{% endblock %}

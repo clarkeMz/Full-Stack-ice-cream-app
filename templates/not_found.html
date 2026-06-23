@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Not Found | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="spotlight">
+    <p class="eyebrow">Not Found</p>
+    <h1>We could not find that {{ item }}.</h1>
+    <a class="button" href="{{ url_for('home') }}">Back Home</a>
+</section>
+{% endblock %}

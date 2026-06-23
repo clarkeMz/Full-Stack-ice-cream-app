@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Flavors | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="section-heading">
+    <p class="eyebrow">Menu</p>
+    <h1>Our Flavors</h1>
+    <p>Search by name, filter by category, or find options for different dietary needs.</p>
+</section>
+
+<form class="search-form filters" action="{{ url_for('flavors') }}" method="get">
+    <label for="q">Search flavors</label>
+    <div class="filter-grid">
+        <input id="q" name="q" type="text" value="{{ search_term }}" placeholder="Try chocolate or caramel">
+        <select name="category" aria-label="Category">
+            <option value="all">All categories</option>
+            {% for category in categories %}
+                <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
+            {% endfor %}
+        </select>
+        <select name="dietary" aria-label="Dietary filter">
+            <option value="all">All dietary tags</option>
+            <option value="vegan" {% if selected_dietary == "vegan" %}selected{% endif %}>Vegan</option>
+            <option value="dairy-free" {% if selected_dietary == "dairy-free" %}selected{% endif %}>Dairy-free</option>
+            <option value="gluten-free" {% if selected_dietary == "gluten-free" %}selected{% endif %}>Gluten-free</option>
+        </select>
+        <button type="submit">Search</button>
+    </div>
+</form>
+
+{% if search_term %}
+    <p class="results-note">Showing results for "{{ search_term }}".</p>
+{% endif %}
+
+<section class="flavor-grid">
+    {% for flavor in flavors %}
+        <article class="flavor-card {% if not flavor.available %}muted-card{% endif %}">
+            <div>
+                <h2>{{ flavor.name }}</h2>
+                <p>{{ flavor.description }}</p>
+                <div class="tag-row">
+                    <span>{{ flavor.category }}</span>
+                    {% for tag in flavor.tags %}
+                        <span>{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card-bottom">
+                <strong>{{ flavor.price }}</strong>
+                <a href="{{ url_for('flavor_detail', flavor_id=flavor.id) }}">Details</a>
+            </div>
+        </article>
+    {% else %}
+        <p>No flavors matched your search.</p>
+    {% endfor %}
+</section>
+{% endblock %}

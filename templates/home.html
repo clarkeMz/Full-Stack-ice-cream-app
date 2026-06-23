@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Scoops & Smiles{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">Local ice cream shop</p>
+        <h1>Welcome to Scoops & Smiles</h1>
+        <p>
+            Browse the menu, filter by dietary needs, place pickup orders,
+            leave reviews, and manage the shop through a small admin dashboard.
+        </p>
+        <div class="actions">
+            <a class="button" href="{{ url_for('flavors') }}">See Flavors</a>
+            <a class="button secondary" href="{{ url_for('order') }}">Place an Order</a>
+        </div>
+    </div>
+    <aside class="feature-panel">
+        <span>Featured this week</span>
+        <h2>{{ featured_flavor.name }}</h2>
+        <p>{{ featured_flavor.description }}</p>
+        <p>{{ featured_flavor.featured_note }}</p>
+        <strong>{{ featured_flavor.price }}</strong>
+    </aside>
+</section>
+
+<section class="stats-band">
+    <article>
+        <strong>{{ stats.total_flavors }}</strong>
+        <span>total flavors</span>
+    </article>
+    <article>
+        <strong>{{ stats.available_flavors }}</strong>
+        <span>available today</span>
+    </article>
+    <article>
+        <strong>{{ stats.category_count }}</strong>
+        <span>menu categories</span>
+    </article>
+</section>
+
+<section class="section-heading compact-heading">
+    <p class="eyebrow">Customer Notes</p>
+    <h1>Recent Reviews</h1>
+</section>
+
+<section class="review-grid">
+    {% for review in reviews %}
+        <article class="review-card">
+            <div class="stars">{{ "★" * review.rating }}</div>
+            <p>{{ review.comment }}</p>
+            <strong>{{ review.name }}</strong>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}

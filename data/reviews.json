@@ -5,7 +5,7 @@
     "name": "Avery",
     "rating": 5,
     "favorite_flavor": "Salted Caramel Scoop",
-    "comment": "The caramel flavor tastes homemade and the online menu made ordering simple."
+    "comment": "The caramel flavor tastes good and the menu is easy to understand."
   },
   {
     "id": "sample02",
@@ -13,6 +13,6 @@
     "name": "Jordan",
     "rating": 4,
     "favorite_flavor": "Mango Sorbet Splash",
-    "comment": "I liked that the dairy-free option was easy to find."
+    "comment": "I liked that the dairy-free options were easy to find."
   }
 ]
